@@ -1,27 +1,46 @@
 import React from "react";
+import "../styles/table.css";
+import moment from "moment"
 
-function Table() {
+// props{
+//     employeeArray,
+//name
+// }
+function Table(props) {
     return (
 
         <table className="table table-striped">
             <thead className="thead-dark">
                 <tr>
                     <th scope="col" className="pl-5" >Image</th>
-                    <th scope="col">Name</th>
+                    <th scope="col" onClick={props.handleSort} >Name</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Email</th>
                     <th scope="col">DOB</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <img className="pl-3" src="https://picsum.photos/100"/>
-                    <td>Mark Otto</td>
-                    <td>555-123-4567</td>
-                    <td>motto@gmail.com</td>
-                    <td>01-19-1988</td>
-                </tr>
-                <tr>
+                {props.employeeArray.length > 0 ? props.employeeArray.map(employee => {
+                    return (
+                        <tr>
+                            <td> <img className="pl-3" src={employee.picture.thumbnail}  /></td>
+
+                    <td>{employee.name.first + " " + employee.name.last}</td>
+                    <td>{employee.phone}</td>
+                    <td>{employee.email}</td>
+                    <td>{ moment(employee.dob.date).format("MM-DD-YYYY")}</td>
+                        </tr>
+                    )
+                }) : <tr>
+                        <td>  </td>
+
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>}
+
+                {/* <tr>
                 <img class="pl-3" src="https://picsum.photos/100"/>
                     <td>Jacob Thornton</td>
                     <td>555-123-4561</td>
@@ -100,6 +119,8 @@ function Table() {
                     <td>01-30-1988</td>
 
                 </tr>
+           */}
+
             </tbody>
         </table>
 

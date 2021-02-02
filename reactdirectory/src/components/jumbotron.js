@@ -3,7 +3,7 @@ import "../styles/jumbotron.css";
 
 const styles = {
     headerStyle: {
-      background: "darkblue"
+      background: "blue"
     },
     headingStyle: {
       fontSize: 100

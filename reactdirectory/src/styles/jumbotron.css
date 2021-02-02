@@ -1,6 +1,8 @@
 .jumbotron {
-    background: #00224b;
+    background: #00224b !important;
     height: 200px;
+    border-bottom-style: solid;
+    border-bottom-color: darkred;
   }
   
   .jumbotron h1 {
